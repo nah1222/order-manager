@@ -1,6 +1,30 @@
-<app-item-object 
-    *ngFor="let item of items" 
-    [item]="item" 
-    (click)="addItemToCart()"
-    >
-</app-item-object>
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <ng-container *ngFor="let item of items">
+        <div class="container">
+            <input 
+            ngModel
+            [name]="item.name"
+            [id]="item.id"
+            [(ngModel)]="item.selected"
+            type="checkbox">
+            <label 
+            [for]="item.name"
+            [title]="item.description"
+            >{{item.name}} {{item.price | currency:'USD'}}
+            </label>
+            <br>
+        </div>
+    </ng-container>
+    <button
+    id="order-now-button"
+    type="submit"
+    [disabled]="cart.length !== 0 "
+    class="button is-primary">
+    Order Now</button>
+
+    <div *ngIf="cart.length > 0">
+        <p>Order is placed successfully.</p>
+        <button class="button is-light" routerLink="/home">Go Home</button>
+    </div>
+
+</form>

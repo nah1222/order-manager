@@ -12,21 +12,35 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ItemsComponent implements OnInit {
   items: Item[] = ITEMS
-  carts: Cart[] = CARTS
+
+  cart: Item[] = []
+  
 
   constructor(private itemService: ItemService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.itemService.getItems().subscribe((items) => this.items = items);
+    this.cartService.cart.subscribe(res => {
+      this.cart = res;
+    });
   }
 
-  deleteItem(item: Item){
-    this.itemService.deleteItem(item).subscribe(() => 
-    (this.items = this.items.filter(i => i.id !== item.id)));
-  }
+  areAllUnchecked = (item: any) => item['selected'] === false;
 
-  addItemToCart(item:Item){
-    this.cartService.addToCart(item).subscribe((items) => this.item = console.log(item))
+  onSubmit(form: any){
+    if(this.items.every(this.areAllUnchecked)){
+      alert("Select at least 1 product.");
+      return;
+    }
+    for(let item of this.items){
+      if(item.selected){
+        this.cart.push(item);
+      }
+    }
+    this.cartService.changeOrder(this.cart);
+    console.log(this.cart);
+
+    this.itemService.addOrder(JSON.stringify(this.cart))
+      .subscribe(item => this.cart.push(item));
   }
 
 }

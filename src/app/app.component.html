@@ -1,5 +1,10 @@
 <div class="container">
-    <app-header></app-header>
-    <router-outlet></router-outlet>
+    <div>
+        <button class="button" routerLink="/item" [disabled]="cart.length !== 0">Place Order</button>
+        <button class="button" routerLink="/cart" [disabled]="!(cart.length > 0)">Checkout</button>
+    </div>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
 
 </div>

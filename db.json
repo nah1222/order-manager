@@ -3,42 +3,49 @@
     {
       "id": 1,
       "name": "Hamburger",
+      "description":"buns and meat",
       "price": 11,
       "selected": true
     },
     {
       "id": 2,
       "name": "Hot Dog",
+      "description":" long meat in buns",
       "price": 8.5,
       "selected": true
     },
     {
       "id": 3,
       "name": "Pizza Slice",
+      "description":"cheese on bread",
       "price": 3.5,
       "selected": false
     },
     {
       "id": 4,
       "name": "Macarroni and Cheese",
+      "description":"cheese on pasta",
       "price": 5,
       "selected": true
     },
     {
       "id": 5,
       "name": "Pizza",
+      "description":"cheese on big bread",
       "price": 20,
       "selected": false
     },
     {
       "id": 6,
       "name": "Jumbo Hot Dog",
+      "description":"extra long meat in buns",
       "price": 11.5,
       "selected": true
     },
     {
       "id": 7,
-      "name": "Hot Dog Snandwich",
+      "name": "Hot Dog Sandwich",
+      "description":"long meat in buns but different",
       "price": 8.5,
       "selected": false
     }

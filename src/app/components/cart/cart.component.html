@@ -1,10 +1,10 @@
-<div *ngIf="order.length === 0" class="alert alert-info">Your Cart is Empty</div>
-
-<ul *ngIf="order.length > 0" class="list-group">
-    <li class="list-group-item" *ngFor="let item of order"></li>
-
-    <li class="list-group-item active">
-        <strong>Total</strong>:{{cart.totalPrice | currency:'USD'}}
-    </li>
-
-</ul>
+<h2>You ordered:</h2>
+<div *ngFor="let item of cart">{{item.name}} {{item.price |currency}}</div>
+<br>
+<div>Total Items: {{cart.length}}</div>
+<div>Total Price: {{calcTotalPrice() | currency}}</div>
+<button id="pay-now" (click)="onPayNow" type = "submit" (click)="onPayNow()">Pay Now</button>
+<div *ngIf="paid">
+<p>Please visit us again!</p>
+<button class="button is-light" routerLink="/home" (click)="newCart()">Go Home</button>
+</div>
