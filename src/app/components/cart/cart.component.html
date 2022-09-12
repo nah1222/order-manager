@@ -6,5 +6,5 @@
 <button id="pay-now" (click)="onPayNow" type = "submit" (click)="onPayNow()">Pay Now</button>
 <div *ngIf="paid">
 <p>Please visit us again!</p>
-<button class="button is-light" routerLink="/home" (click)="newCart()">Go Home</button>
+<button class="button is-light" routerLink="/home" (click)="newCart()" (click)="onPayNow()">Go Home</button>
 </div>

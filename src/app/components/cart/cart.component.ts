@@ -23,11 +23,12 @@ export class CartComponent implements OnInit {
   }
 
   newCart(){
-    this.cart= [];
+    this.cart = [];
   }
 
   onPayNow(){
     this.paid = !this.paid;
+    console.log(this.paid);
   }
 
 }
